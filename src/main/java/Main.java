@@ -10,16 +10,35 @@ public class Main {
         System.out.println("2: Large ($8.95)");
         System.out.print("Select 1 or 2: ");
 
-        int sandwichSize = myScanner.nextInt();
-        double basePrice = 0.0;
+        double regLoadedPrice = 6.45;
+        double larLoadedPrice = 10.70;
+
+        String sizeInput = myScanner.nextLine();
+        double sandwichSize =Double.parseDouble(sizeInput);
+
+        double basePrice = 0;
 
         if (sandwichSize == 1) {
             basePrice = 5.45;
-        }else if (sandwichSize == 2) {
+        } else if (sandwichSize == 2) {
             basePrice = 8.95;
-        }else {
+        } else {
             System.out.println("Error");
         }
+        System.out.println("Would you like the sandwich loaded? (yes/no): ");
+        String input = myScanner.nextLine();
+
+        if (input.equals("yes")) {
+            if (sandwichSize == 1) {
+                basePrice = basePrice + 1.00;
+            }
+            if (sandwichSize == 2) {
+                basePrice = basePrice + 1.75;
+            }
+        }
+
+        System.out.println(basePrice);
+
         System.out.println("Enter your age: ");
         int age = myScanner.nextInt();
 
